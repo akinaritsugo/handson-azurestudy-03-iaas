@@ -228,6 +228,21 @@
             }
         },
         {
+            "type": "Microsoft.Compute/virtualMachines/runCommands",
+            "apiVersion": "2020-12-01",
+            "name": "Install_IIS",
+            "location": "japaneast",
+            "properties": {
+                "asyncExecution": false,
+                "runAsUser": "[parameters('VirtualMachine_AdminUsername')]",
+                "runAsPassword": "[parameters('VirtualMachine_AdminPassword')]",
+                "source": {
+                    "commandId": "RunPowerShellScript",
+                    "script": "Install-WindowsFeature Web-Server -IncludeManagementTools"
+                }
+            }
+        },
+        {
             "type": "Microsoft.Network/virtualNetworks/subnets",
             "apiVersion": "2020-11-01",
             "name": "[concat(parameters('VirtualNetwork_Name'), '/snet-gateway')]",
