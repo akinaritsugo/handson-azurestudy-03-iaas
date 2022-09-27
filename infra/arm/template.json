@@ -72,26 +72,26 @@
             }
         },
         {
-          "type": "Microsoft.Network/networkSecurityGroups/securityRules",
-          "apiVersion": "2020-11-01",
-          "name": "[concat(parameters('NSG_VM_Name'), '/AllowAnyRDPInbound')]",
-          "dependsOn": [
-              "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('NSG_VM_Name'))]"
-          ],
-          "properties": {
-              "protocol": "TCP",
-              "sourcePortRange": "*",
-              "destinationPortRange": "3389",
-              "sourceAddressPrefix": "*",
-              "destinationAddressPrefix": "*",
-              "access": "Allow",
-              "priority": 100,
-              "direction": "Inbound",
-              "sourcePortRanges": [],
-              "destinationPortRanges": [],
-              "sourceAddressPrefixes": [],
-              "destinationAddressPrefixes": []
-          }
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2020-11-01",
+            "name": "[concat(parameters('NSG_VM_Name'), '/AllowAnyRDPInbound')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('NSG_VM_Name'))]"
+            ],
+            "properties": {
+                "protocol": "TCP",
+                "sourcePortRange": "*",
+                "destinationPortRange": "3389",
+                "sourceAddressPrefix": "*",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 100,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
         },
         {
             "type": "Microsoft.Network/publicIPAddresses",
@@ -225,21 +225,6 @@
                 },
                 "enableAcceleratedNetworking": false,
                 "enableIPForwarding": false
-            }
-        },
-        {
-            "type": "Microsoft.Compute/virtualMachines/runCommands",
-            "apiVersion": "2020-12-01",
-            "name": "[concat(parameters('VirtualMachine_Name'), '_install_iis')]",
-            "location": "japaneast",
-            "properties": {
-                "asyncExecution": false,
-                "runAsUser": "[parameters('VirtualMachine_AdminUsername')]",
-                "runAsPassword": "[parameters('VirtualMachine_AdminPassword')]",
-                "source": {
-                    "commandId": "RunPowerShellScript",
-                    "script": "Install-WindowsFeature Web-Server -IncludeManagementTools "
-                }
             }
         },
         {
