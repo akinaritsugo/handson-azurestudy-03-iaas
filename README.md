@@ -8,7 +8,7 @@
 
 本ハンズオンを通して、Application Gateway、ストレージの使用方法について学習します。
 
-![完成状態](/docs/images/ex00-0000-completed.png)
+![完成状態](/docs/handout/images/ex00-0000-completed.png)
 
 ## 対象
 
@@ -26,7 +26,7 @@
 
 ## ハンズオン資料
 
-<!-- 1. [環境準備](/docs/handson-prepare.md) -->
+1. [環境準備](/docs/preparation/01-arm.md)
 1. [ハンズオン](/docs/README.md)
 
 
