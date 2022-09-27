@@ -36,6 +36,10 @@
         "VirtualMachine_PublicIP_Name": {
             "defaultValue": "vm-handson-winsvr-ip",
             "type": "String"
+        },
+        "VirtualMachine_ShutdownCompute_Name": {
+            "defaultValue": "shutdown-computevm-vm-handson-winsvr",
+            "type": "String"
         }
     },
     "variables": {},
@@ -142,6 +146,29 @@
                         }
                     ]
                 }
+            }
+        },
+        {
+            "type": "microsoft.devtestlab/schedules",
+            "apiVersion": "2018-09-15",
+            "name": "[parameters('VirtualMachine_ShutdownCompute_Name')]",
+            "location": "japaneast",
+            "dependsOn": [
+                "[resourceId('Microsoft.Compute/virtualMachines', parameters('VirtualMachine_Name'))]"
+            ],
+            "properties": {
+                "status": "Enabled",
+                "taskType": "ComputeVmShutdownTask",
+                "dailyRecurrence": {
+                    "time": "1900"
+                },
+                "timeZoneId": "UTC",
+                "notificationSettings": {
+                    "status": "Disabled",
+                    "timeInMinutes": 30,
+                    "notificationLocale": "ja"
+                },
+                "targetResourceId": "[resourceId('Microsoft.Compute/virtualMachines', parameters('VirtualMachine_Name'))]"
             }
         },
         {
