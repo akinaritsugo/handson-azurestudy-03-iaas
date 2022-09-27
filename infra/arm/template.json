@@ -72,8 +72,6 @@
             }
         },
         {
-<<<<<<< HEAD
-=======
           "type": "Microsoft.Network/networkSecurityGroups/securityRules",
           "apiVersion": "2020-11-01",
           "name": "[concat(parameters('NSG_VM_Name'), '/AllowAnyRDPInbound')]",
@@ -96,7 +94,6 @@
           }
         },
         {
->>>>>>> main
             "type": "Microsoft.Network/publicIPAddresses",
             "apiVersion": "2020-11-01",
             "name": "[parameters('VirtualMachine_PublicIP_Name')]",
@@ -228,6 +225,21 @@
                 },
                 "enableAcceleratedNetworking": false,
                 "enableIPForwarding": false
+            }
+        },
+        {
+            "type": "Microsoft.Compute/virtualMachines/runCommands",
+            "apiVersion": "2020-12-01",
+            "name": "[concat(parameters('VirtualMachine_Name'), '_install_iis')]",
+            "location": "japaneast",
+            "properties": {
+                "asyncExecution": false,
+                "runAsUser": "[parameters('VirtualMachine_AdminUsername')]",
+                "runAsPassword": "[parameters('VirtualMachine_AdminPassword')]",
+                "source": {
+                    "commandId": "RunPowerShellScript",
+                    "script": "Install-WindowsFeature Web-Server -IncludeManagementTools "
+                }
             }
         },
         {

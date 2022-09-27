@@ -9,11 +9,7 @@
 
 1. 以下のボタンからテンプレートを展開
 
-<<<<<<< HEAD
     [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fakinaritsugo%2Fhandson-azurestudy-03-iaas%2Ffeature%2Fex00%2Finfra%2Farm%2Ftemplate.json)
-=======
-    [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fakinaritsugo%2Fhandson-azurestudy-03-iaas%2Fmain%2Finfra%2Farm%2Ftemplate.json)
->>>>>>> main
 
 1. 作成したリソースから仮想マシンを開く
 
@@ -25,8 +21,6 @@
 
     ![](images/0101-arm.png)
 
-<<<<<<< HEAD
-=======
 
 ## Storage Explorer のインストール
 
@@ -35,4 +29,3 @@
 
 * [Azure Storage Explorer](https://azure.microsoft.com/ja-jp/products/storage/storage-explorer/#overview)
 
->>>>>>> main
